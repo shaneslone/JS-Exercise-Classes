@@ -208,7 +208,7 @@ class Student extends Lambdasian {
     this.favSubjects = attributes.favSubjects;
   }
   listSubjects() {
-    this.favSubjects.toString();
+    return this.favSubjects.toString();
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}.`;
@@ -217,6 +217,14 @@ class Student extends Lambdasian {
     return `${this.name} has begun sprint challenge on ${subject}.`;
   }
 }
+const studentOne = new Student({
+  name: 'Shane',
+  age: 34,
+  location: 'Kentucky',
+  previousBackground: 'Customer Support',
+  className: 'Web36',
+  favSubjects: ['HTML', 'CSS', 'JavaScript'],
+});
 
 /*
   TASK 6
@@ -231,7 +239,31 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {}
+class ProjectManager extends Instructor {
+  constructor(attributes) {
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+  }
+  standUp(slackChannel) {
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+  }
+  debugCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}.`;
+  }
+}
+
+const projectManagerOne = new ProjectManager({
+  name: 'Larry',
+  age: 25,
+  location: 'New York',
+  specialty: 'Node.js',
+  favLanguage: 'Python',
+  catchPhrase: 'Yo',
+  gradClassName: 'CS1',
+  favInstructor: 'Britt',
+});
+console.log(projectManagerOne.debugCode(studentOne, 'JavaScript'));
 
 /*
   STRETCH PROBLEM (no tests!)
