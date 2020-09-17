@@ -41,11 +41,6 @@ class Airplane {
 */
 
 class Person {
-  // constructor(attributes) {
-  //   this.name = attributes.name;
-  //   this.age = attributes.age;
-  //   this.stomach = [];
-  // }
   constructor(name, age) {
     this.name = name;
     this.age = age;
@@ -84,9 +79,6 @@ const personOne = new Person({
 */
 
 class Car {
-  // constructor(attributes) {
-  //   this.model = attributes.model;
-  //   this.milesPerGallon = attributes.milesPerGallon;
   constructor(model, milesPerGallon) {
     this.model = model;
     this.milesPerGallon = milesPerGallon;
@@ -108,15 +100,6 @@ class Car {
     }
   }
 }
-const myCar = new Car({
-  model: 'Camero',
-  milesPerGallon: 15,
-});
-
-// myCar.fill(30);
-// myCar.drive(100);
-// console.log(myCar);
-// console.log(myCar.drive(1000));
 
 /*
   TASK 3
@@ -140,14 +123,6 @@ class Lambdasian {
     return `Hello my name is ${this.name}, I'm from ${this.location}.`;
   }
 }
-
-const lamdbasianOne = new Lambdasian({
-  name: 'Shane',
-  age: 34,
-  location: 'Kentucky',
-});
-
-// console.log(lamdbasianOne.speak());
 
 /*
   TASK 4
@@ -176,15 +151,29 @@ class Instructor extends Lambdasian {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}.`;
   }
+  teach(student) {
+    const coinFlip = Math.floor(Math.random() * 2 + 1);
+    if (coinFlip === 1) {
+      student.grade -= Math.floor(Math.random() * 10 + 1);
+      if (student.grade < 1) {
+        student.grade = 1;
+      }
+    } else {
+      student.grade += Math.floor(Math.random() * 10 + 1);
+      if (student.grade > 100) {
+        student.grade = 100;
+      }
+    }
+  }
 }
 
 const instructorOne = new Instructor({
   name: 'John',
-  age: 30,
-  location: 'USA',
+  age: 25,
+  location: 'New York',
   specialty: 'React',
-  favLanguage: 'JavasScript',
-  catchPhrase: "Don't forget the homies!",
+  favLanguage: 'JavaScript',
+  cathcPhrase: 'Code on!',
 });
 
 /*
@@ -208,6 +197,7 @@ class Student extends Lambdasian {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = Math.floor(Math.random() * 100 + 1);
   }
   listSubjects() {
     return this.favSubjects.toString();
@@ -218,14 +208,22 @@ class Student extends Lambdasian {
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}.`;
   }
+  graduate() {
+    if (this.grade > 70) {
+      return `Congradulations ${this.name}, you graduate!`;
+    } else {
+      return `Keep Studying!`;
+    }
+  }
 }
+
 const studentOne = new Student({
   name: 'Shane',
   age: 34,
   location: 'Kentucky',
   previousBackground: 'Customer Support',
-  className: 'Web36',
-  favSubjects: ['HTML', 'CSS', 'JavaScript'],
+  className: 'Web 36',
+  favSubjects: ['JavaScript', 'HTML', 'CSS'],
 });
 
 /*
@@ -255,17 +253,6 @@ class ProjectManager extends Instructor {
   }
 }
 
-const projectManagerOne = new ProjectManager({
-  name: 'Larry',
-  age: 25,
-  location: 'New York',
-  specialty: 'Node.js',
-  favLanguage: 'Python',
-  catchPhrase: 'Yo',
-  gradClassName: 'CS1',
-  favInstructor: 'Britt',
-});
-
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -274,6 +261,23 @@ const projectManagerOne = new ProjectManager({
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+// console.log(studentOne);
+// console.log(instructorOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// instructorOne.teach(studentOne);
+// console.log(studentOne.grade);
+// console.log(studentOne.graduate());
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
