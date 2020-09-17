@@ -41,13 +41,18 @@ class Airplane {
 */
 
 class Person {
-  constructor(attributes) {
-    this.name = attributes.name;
-    this.age = attributes.age;
+  // constructor(attributes) {
+  //   this.name = attributes.name;
+  //   this.age = attributes.age;
+  //   this.stomach = [];
+  // }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
   eat(someFood) {
-    if (this.stomach.length < 11) {
+    if (this.stomach.length < 10) {
       this.stomach.push(someFood);
     }
   }
@@ -55,7 +60,7 @@ class Person {
     this.stomach = [];
   }
   toString() {
-    return `${this.name} is ${this.age}`;
+    return `${this.name}, ${this.age}`;
   }
 }
 
@@ -63,12 +68,6 @@ const personOne = new Person({
   name: 'Shane',
   age: 34,
 });
-
-// personOne.eat('apple');
-// console.log(personOne);
-// personOne.poop();
-// console.log(personOne);
-// console.log(personOne.toString());
 
 /*
   TASK 2
@@ -85,9 +84,12 @@ const personOne = new Person({
 */
 
 class Car {
-  constructor(attributes) {
-    this.model = attributes.model;
-    this.milesPerGallon = attributes.milesPerGallon;
+  // constructor(attributes) {
+  //   this.model = attributes.model;
+  //   this.milesPerGallon = attributes.milesPerGallon;
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
     this.tank = 0;
     this.odometer = 0;
   }
@@ -248,7 +250,7 @@ class ProjectManager extends Instructor {
   standUp(slackChannel) {
     return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
-  debugCode(student, subject) {
+  debugsCode(student, subject) {
     return `${this.name} debugs ${student.name}'s code on ${subject}.`;
   }
 }
@@ -263,7 +265,6 @@ const projectManagerOne = new ProjectManager({
   gradClassName: 'CS1',
   favInstructor: 'Britt',
 });
-console.log(projectManagerOne.debugCode(studentOne, 'JavaScript'));
 
 /*
   STRETCH PROBLEM (no tests!)
